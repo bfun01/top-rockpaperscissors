@@ -1,5 +1,4 @@
-console.log("Hello World");
-
+// PSEUDOCODE
 // 1. Write a function that randomly selects 1 of three choices
 //      1a. Randomly assign value between 0-1. If <0.33 then rock, if 0.33-0.66 then paper, if >0.66 then scissors
 // 2. Write a function that takes a user's choice and returns it (assumes user will always enter correct choice)
@@ -12,32 +11,68 @@ console.log("Hello World");
 
 
 // Step 1: Computer Choice
+let compchoice //Pass function result to a variable so I can call the result later.
 
-function getComputerChoice(choice) {
+function getComputerChoice() {
     if (Math.random() <= 0.33) {
-        choice = "Rock";
+        return compchoice = "rock";
     } else if ((Math.random() >= 0.33) && (Math.random() <= 0.66)) {
-        choice = "Paper";
+        return compchoice = "paper";
     } else {
-        choice = "Scissors"; 
+        return compchoice = "scissors"; 
     }
-    console.log(choice);
 } 
     
 getComputerChoice();
 
+console.log("Computer chooses: "+compchoice);
+    
 // Step 2: Human Choice
 
-function getHumanChoice(choice) {
+let choice //Pass function result to a variable so I can call the result later.
+
+function getHumanChoice() {
     choice = prompt("Rock, paper or scissors?");
-    console.log(choice);
-} 
+    return choice;
+}
 
 getHumanChoice();
+console.log("You chose: " +choice);
 
-// Step 3: Keep track of score
+// Step 3: Variables to keep track of score
 
 let humanScore = 0;
 let computerScore = 0;
 
 // Step 4: Round logic
+
+function playRound(humanChoice, computerChoice) {
+    humanChoice = choice.toLowerCase(); //If getHumanChoice function is called here, it reruns the prompt, hence passing the result to the "choice" variable instead
+    computerChoice = compchoice; //If getComputerChoice function is called here, it rerolls the result. hence passing the result to "compchoice" variable
+    if (humanChoice === computerChoice) {
+        console.log("It's a draw!!!");
+    } else if (humanChoice == "rock" && computerChoice == "scissors") {
+        humanScore++;
+        console.log("You are the winner!!!")
+    } else if (humanChoice == "paper" && computerChoice == "rock") {
+        humanScore++;
+        console.log("You are the winner!!!")
+    } else if (humanChoice == "scissors" && computerChoice == "paper") {
+        humanScore++;
+        console.log("You are the winner!!!")
+    } else if (humanChoice == "rock" && computerChoice == "paper") {
+        computerScore++;
+        console.log("You lose, loser!!!")
+    } else if (humanChoice == "paper" && computerChoice == "scissors") {
+        computerScore++;
+        console.log("You lose, loser!!!")
+    } else if (humanChoice == "scissors" && computerChoice == "rock") {
+        computerScore++;
+        console.log("You lose, loser!!!")
+    } else { 
+        console.log("Oh god, something went wrong - do you know how to spell?")
+    }
+}
+
+playRound();
+console.log("You: "+humanScore+" Computer: "+computerScore);
