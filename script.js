@@ -15,11 +15,11 @@ let compchoice //Pass function result to a variable so I can call the result lat
 
 function getComputerChoice() {
     if (Math.random() <= 0.33) {
-        return compchoice = "rock";
+        compchoice = "rock";
     } else if ((Math.random() >= 0.33) && (Math.random() <= 0.66)) {
-        return compchoice = "paper";
+        compchoice = "paper";
     } else {
-        return compchoice = "scissors"; 
+        compchoice = "scissors"; 
     }
 } 
     
@@ -33,7 +33,6 @@ let choice //Pass function result to a variable so I can call the result later.
 
 function getHumanChoice() {
     choice = prompt("Rock, paper or scissors?");
-    return choice;
 }
 
 getHumanChoice();
@@ -76,3 +75,7 @@ function playRound(humanChoice, computerChoice) {
 
 playRound();
 console.log("You: "+humanScore+" Computer: "+computerScore);
+
+// Step 5: Oh god her we go
+
+playGame();
