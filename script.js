@@ -11,16 +11,32 @@
 // 5. Call 5 rounds of the game. Have a message at the end declaring the winner.
 
 let round = 1
+
 // Computer Choice
 let compchoice //Pass function result to a variable so I can call the result later.
 
 function getComputerChoice() {
-    if (Math.random() <= 0.33) {
+    // Below was the first version. However I keep calling math.random() multiple times and therefore, if I want to update this with more choices later
+    // i'll need to redfine the ranges and adjust each condition. LAME.
+
+    // if (Math.random() <= 0.33) {
+    //     compchoice = "rock";
+    // } else if ((Math.random() >= 0.33) && (Math.random() <= 0.66)) {
+    //     compchoice = "paper";
+    // } else {
+    //     compchoice = "scissors"; 
+    // }
+
+    // After feedback, this is the second version. Whereas v1 was "Pick a number between 0 and 1 and split the ranges", 
+    // the below is saying "Just roll a dice with 3 sides and use the result"
+    const numOfPossibleOutcomes = 3;
+    const selection = Math.floor(Math.random() * (numOfPossibleOutcomes)); // Give random number between 0 and 1, but then multiply by number of choices and round down to a whole number. 
+    if (selection === 0) {
         compchoice = "rock";
-    } else if ((Math.random() >= 0.33) && (Math.random() <= 0.66)) {
-        compchoice = "paper";
-    } else {
-        compchoice = "scissors"; 
+    } else if (selection === 1) {
+        compchoice = "paper"; 
+    } else if (selection === 2) {
+        compchoice = "scissors";
     }
 }
     
